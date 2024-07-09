@@ -96,6 +96,29 @@ Input = Tab:CreateInput({
    end,
 })
 
+local Button = Tab:CreateButton({
+   Name = "No Fog",
+   Callback = function()
+local Lighting = game:GetService("Lighting")
+
+Lighting.FogEnd = 100000
+
+Lighting:GetPropertyChangedSignal("FogEnd"):Connect(function()
+    Lighting.FogEnd = 100000
+end)
+
+for _,v in ipairs(Lighting:GetDescendants()) do
+    if v:IsA("Atmosphere") then
+        v.Density = 0
+
+        v:GetPropertyChangedSignal("Density"):Connect(function()
+            v.Density = 0
+        end)
+    end
+end
+   end,
+})
+
 local TeleportTab = Window:CreateTab("Teleports <3", nil) -- Title, Image
 local Section = TeleportTab:CreateSection("Regions")
 

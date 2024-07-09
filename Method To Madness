@@ -29,6 +29,6 @@ if not toggle then return end
 if game.workspace.GameMap.Miscellaneous:FindFirstChild("Chest") then
     local primarypart = game.Players.LocalPlayer.Character.PrimaryPart
 local target = game.workspace.GameMap.Miscellaneous.Chest
-	game:GetService("TweenService"):Create(primarypart,TweenInfo.new(2),{CFrame = target.CFrame}):Play()
+	game:GetService("TweenService"):Create(primarypart,TweenInfo.new(4),{CFrame = target.CFrame}):Play()
 end
 end

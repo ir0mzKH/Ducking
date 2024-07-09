@@ -1,0 +1,149 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "♥ Dinosaur Simulator ♥",
+   LoadingTitle = "Stuffz <3",
+   LoadingSubtitle = "by ir0mz",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Stuffz/dinosaursimulator"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local Tab = Window:CreateTab("Main", nil) -- Title, 
+local Section = Tab:CreateSection("Afking")
+
+local Button = Tab:CreateButton({
+   Name = "Glass Farm",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Method%20To%20Madness'))()
+   end,
+})
+
+local IsToggleActive = false -- Initially set the toggle to be inactive
+
+local Toggle = Tab:CreateToggle({
+    Name = "Infinite Hunger/Thirst",
+    CurrentValue = IsToggleActive,
+    Flag = "Toggle1", -- Unique flag for configuration saving
+    Callback = function(Value)
+        IsToggleActive = Value -- Update the toggle status
+        
+        while IsToggleActive do
+            game.Workspace.GameEvents.EatPlant:FireServer(game.Workspace.GameMap.Ferns.Fern, 10)
+            local A_1 = game.Workspace.GameMap.Water.Water
+            local A_2 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.p
+            local Event = game.Workspace.GameEvents.addThirst
+            Event:FireServer(A_1, A_2)
+            wait(0.1) -- Adjust the delay between each loop iteration as needed
+        end
+    end,
+})
+
+local Section = Tab:CreateSection("Misc")
+
+Input = Tab:CreateInput({
+   Name = "Spawn Skin",
+   PlaceholderText = "Type Here",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Value)
+        local skinName = Value
+        workspace.GameEvents.ChangeDinosaur:FireServer(skinName)
+        wait(2.5)
+        workspace.GameEvents.StartPlayer:FireServer()
+        wait(3)
+        workspace.GameEvents.ChangeDinosaur:FireServer(skinName)
+        workspace.GameEvents.StartPlayer:FireServer()
+   end,
+})
+
+local TeleportTab = Window:CreateTab("Teleports <3", nil) -- Title, Image
+local Section = TeleportTab:CreateSection("Regions")
+
+local Button = TeleportTab:CreateButton({
+   Name = "Hesperides Garden",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Garden'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "Mount Olympus",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Mountain'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "The Underworld",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Underworld'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "The Colosseum",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Place'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "Lernean Swamp",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Swamp'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "Serifos",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Island'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "Atlas",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Atlas'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "Wild South",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/Wild'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "Wild North",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/North'))()
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "Wild East",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/East'))()
+   end,
+})
+
+local Section = TeleportTab:CreateSection("Other Teleports")

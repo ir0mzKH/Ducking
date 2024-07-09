@@ -1,2 +1,2 @@
-spawn(function()
+spawn(function(BuySkinValue)
             print(workspace.GameFunctions.PurchasingDino:InvokeServer(BuySkinValue))

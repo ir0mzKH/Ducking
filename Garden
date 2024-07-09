@@ -3,7 +3,7 @@ local teleport_table = {
 }
 
 local tween_s = game:GetService('TweenService')
-local tweeninfo = TweenInfo.new(2,Enum.EasingStyle.Linear)
+local tweeninfo = TweenInfo.new(4,Enum.EasingStyle.Linear)
 
 local lp = game.Players.LocalPlayer
 

@@ -1,5 +1,5 @@
 local teleport_table = {
-    location1 = Vector3.new(106 , 3.7 , -807.98 ), -- your desired position
+    location1 = Vector3.new(-61.94 , 18.20 , -828.19 ), -- your desired position
 }
 
 local tween_s = game:GetService('TweenService')

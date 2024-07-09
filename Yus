@@ -1,4 +1,4 @@
-_G.Krtik = Value
+_G.Krtik = (value)
 if _G.Krtik then
 while _G.Krtik do
 wait()

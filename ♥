@@ -36,6 +36,15 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ir0mzKH/Ducking/main/
    end,
 })
 
+local Button = Tab:CreateButton({
+   Name = "Water collision",
+   Callback = function()
+for i,v in pairs(workspace.GameMap.Water:GetChildren()) do
+            v.CanCollide = true
+        end
+   end,
+})
+
 local IsToggleActive = false -- Initially set the toggle to be inactive
 
 local Toggle = Tab:CreateToggle({

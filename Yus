@@ -1,2 +1,9 @@
-spawn(function(BuySkinValue)
-            print(workspace.GameFunctions.PurchasingDino:InvokeServer(BuySkinValue))
+_G.Krtik = Value
+if _G.Krtik then
+while _G.Krtik do
+wait()
+game.Workspace.GameEvents.EatPlant:FireServer(game.Workspace.GameMap.Ferns.Fern, 20)
+local A_1 = game.Workspace.GameMap.Water.Water
+local A_2 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.p
+local Event = game.Workspace.GameEvents.addThirst
+Event:FireServer(A_1, A_2)

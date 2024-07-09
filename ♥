@@ -58,6 +58,13 @@ local Toggle = Tab:CreateToggle({
 
 local Section = Tab:CreateSection("Misc")
 
+local Button = Tab:CreateButton({
+   Name = "Subtract Hunger",
+   Callback = function()
+game.Workspace.GameEvents.EatPlant:FireServer(Workspace.GameMap.Ferns.Fern,-10)
+   end,
+})
+
 Input = Tab:CreateInput({
    Name = "Spawn Skin",
    PlaceholderText = "Type Here",

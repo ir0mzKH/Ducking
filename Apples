@@ -14,7 +14,7 @@ OrionLib:MakeNotification({
 
 -- Create Window with Tabs and Sections
 local Window = OrionLib:MakeWindow({
-    Name = "🦖Dinosaur Simulator🦕",
+    Name = "♥Dinosaur Simulator♥",
     HidePremium = false,
     SaveConfig = true,
     ConfigFolder = "OrionTest"
@@ -79,13 +79,6 @@ SectionDinosaurFeature:AddTextbox({
             print(workspace.GameFunctions.PurchasingDino:InvokeServer(BuySkinValue))
         end)
     end
-})
-MainTab:AddButton({
-    Name = "Admin Spy V1",
-    Callback = function()     
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MichaelScripter/MiniScript/main/Spy%20gui.lua"))()
-    end
-
 })
 
 MainTab:AddButton({

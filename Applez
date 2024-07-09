@@ -1,0 +1,151 @@
+-- Load Orion Library
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
+if not OrionLib then
+    error("Failed to load OrionLib")
+end
+
+-- Create Notification
+OrionLib:MakeNotification({
+    Name = "changed this for reasons",
+    Content = "this too",
+    Image = "rbxassetid://4483345998",
+    Time = 9
+})
+
+-- Create Window with Tabs and Sections
+local Window = OrionLib:MakeWindow({
+    Name = "🦖Dinosaur Simulator🦕",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest"
+})
+
+local MainTab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+-- Section: Afk Farm
+local SectionAfkFarm = MainTab:AddSection({
+    Name = "Afk Farm"
+})
+
+SectionAfkFarm:AddButton({
+    Name = "Sky Baseplate V1",
+    Callback = function()
+        local baseplateSize = 500
+        local imageAssetId = "18183658125"  -- Replace with actual asset ID
+
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+            humanoidRootPart.CFrame = CFrame.new(-784.075439453125, 1789.6605224609375, 579.8477783203125)
+
+            local baseplate = Instance.new("Part")
+            baseplate.Size = Vector3.new(baseplateSize, 1.5, baseplateSize)
+            baseplate.Position = humanoidRootPart.Position
+            baseplate.Anchored = true
+            baseplate.Parent = game.Workspace
+            baseplate.BrickColor = BrickColor.Gray()
+            baseplate.Material = Enum.Material.SmoothPlastic
+
+            local decal = Instance.new("Decal")
+            decal.Texture = "rbxassetid://" .. imageAssetId
+            decal.Face = Enum.NormalId.Top
+            decal.Parent = baseplate
+        end
+    end
+})
+
+SectionAfkFarm:AddButton({
+    Name = "Sky Baseplate V2",
+    Callback = function()
+        local baseplateSize = 500
+        local imageAssetId = "18183658125"  -- Replace with actual asset ID
+
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        if character then
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+            humanoidRootPart.CFrame = CFrame.new(-810.3406372070312, 32567.244140625, 461.1965026855469)
+
+            local baseplate = Instance.new("Part")
+            baseplate.Size = Vector3.new(baseplateSize, 1.5, baseplateSize)
+            baseplate.Position = humanoidRootPart.Position
+            baseplate.Anchored = true
+            baseplate.Parent = game.Workspace
+            baseplate.BrickColor = BrickColor.Gray()
+            baseplate.Material = Enum.Material.SmoothPlastic
+
+            local decal = Instance.new("Decal")
+            decal.Texture = "rbxassetid://" .. imageAssetId
+            decal.Face = Enum.NormalId.Top
+            decal.Parent = baseplate
+        end
+    end
+})
+-- Toggle for Infinite Hunger/Thirst
+MainTab:AddToggle({
+    Name = "Infhunger/InfThirst",
+    Default = false,
+    Callback = function(Value)
+        _G.Krtik = Value
+        if _G.Krtik then
+            while _G.Krtik do
+                wait()
+                game.Workspace.GameEvents.EatPlant:FireServer(game.Workspace.GameMap.Ferns.Fern, 20)
+                local A_1 = game.Workspace.GameMap.Water.Water
+                local A_2 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.p
+                local Event = game.Workspace.GameEvents.addThirst
+                Event:FireServer(A_1, A_2)
+            end
+        end
+    end
+})
+
+-- Section: Dinosaur Feature
+local SectionDinosaurFeature = MainTab:AddSection({
+    Name = "Dinosaur Feature"
+})
+
+SectionDinosaurFeature:AddTextbox({
+    Name = "Dinosaur Skin",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(Value)
+        local skinName = Value
+        workspace.GameEvents.ChangeDinosaur:FireServer(skinName)
+        wait(2.5)
+        workspace.GameEvents.StartPlayer:FireServer()
+        wait(3)
+        workspace.GameEvents.ChangeDinosaur:FireServer(skinName)
+        workspace.GameEvents.StartPlayer:FireServer()
+    end
+})
+
+SectionDinosaurFeature:AddTextbox({
+    Name = "Buy Skin Dino",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(BuySkinValue)
+        spawn(function()
+            print(workspace.GameFunctions.PurchasingDino:InvokeServer(BuySkinValue))
+        end)
+    end
+})
+MainTab:AddButton({
+    Name = "Admin Spy V1",
+    Callback = function()     
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MichaelScripter/MiniScript/main/Spy%20gui.lua"))()
+    end
+
+})
+
+MainTab:AddButton({
+    Name = "infinite yield",
+    Callback = function()     
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end
+})     

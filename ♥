@@ -59,6 +59,13 @@ local Toggle = Tab:CreateToggle({
 local Section = Tab:CreateSection("Misc")
 
 local Button = Tab:CreateButton({
+   Name = "Add Hunger By 2",
+   Callback = function()
+game.Workspace.GameEvents.EatPlant:FireServer(Workspace.GameMap.Ferns.Fern, 2)
+   end,
+})
+
+local Button = Tab:CreateButton({
    Name = "Subtract Hunger",
    Callback = function()
 game.Workspace.GameEvents.EatPlant:FireServer(Workspace.GameMap.Ferns.Fern,-10)

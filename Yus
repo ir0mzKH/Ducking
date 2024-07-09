@@ -1,0 +1,2 @@
+spawn(function()
+print(workspace.GameFunctions.PurchasingDino:InvokeServer(BuySkinValue))
